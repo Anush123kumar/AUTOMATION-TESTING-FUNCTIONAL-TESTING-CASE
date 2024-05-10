@@ -1,0 +1,19 @@
+Script for the Test :
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+driver = webdriver.Chrome()
+driver.get("https://demo.dealsdray.com/")
+username_input = driver.find_element_by_id("username")
+username_input.send_keys("prexo.mis@dealsdray.com")
+password_input = driver.find_element_by_id("password")
+password_input.send_keys("prexo.mis@dealsdray.com")
+login_button = driver.find_element_by_xpath("//button[contains(text(),'Login')]")
+login_button.click()
+time.sleep(5)  
+file_input = driver.find_element_by_id("fileUpload")
+file_input.send_keys("demo-data.xlsx")
+time.sleep(5)  
+driver.save_screenshot("final_output.png")
+driver.quit()
